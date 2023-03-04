@@ -1,5 +1,5 @@
 # Gravitational_masses_simulation
-This project creates a realistic physics simulation of interacting masses using Lagrangian mechanics. 
+This project creates a realistic physics simulation of gravitationally interacting masses using Lagrangian mechanics. 
 The code can be modified to create slow motions or high resolution videos.
 The simulation is numerically intense because each mass interacts with all the other masses
 
