@@ -1,23 +1,20 @@
+(*** CREATE DATA FOR THE ANIMATION ***)
+
 (*** read solution and set variables according to previous file ***)
 Get[NotebookDirectory[] <> "solutions.mx"]
 dim = 2;
 lengthIncpf = 200;
 timeSimulation = 300;
 pRange = {{-4.95, 4.95}, {-4.95, 4.95}}; 
-pRange = {pRange[[1]]*16/9, pRange[[2]]}; (* to have 16/9 ratio *)
 
-(* load solutions into (xs,ys) *)
-MapThread[
-  Set, {Table[{xs[i], ys[i]}, {i, 1/dim lengthIncpf}], 
-   Table[({x[i], y[i]} /. sol)[[1]], {i, 1/dim lengthIncpf}]}];
-   
+(* video utput in 16/9 ratio *)
+pRange = {pRange[[1]]*16/9, pRange[[2]]}; (* to have 16/9 ratio *)
 
 (*** set option for video output ***)
 
 (* quality=5120; fontSize=100; (* 8K resolution *) *)
 (* quality=2560; fontSize=50; (* for 4K *) *)
 quality = 1280; fontSize = 25; (* for 1080p *)
-
 
 optionsPlot = {
    PlotStyle -> PointSize[0.007],
@@ -27,6 +24,12 @@ optionsPlot = {
    ImageSize -> quality};
    
    
+(* load solutions into (xs,ys) *)
+MapThread[
+  Set, {Table[{xs[i], ys[i]}, {i, 1/dim lengthIncpf}], 
+   Table[({x[i], y[i]} /. sol)[[1]], {i, 1/dim lengthIncpf}]}];
+   
+
 (* data from solutions, not fine-tuned, for tests *)
 (*
 data = Table[ListPlot[
